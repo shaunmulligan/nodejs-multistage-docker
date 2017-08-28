@@ -21,4 +21,4 @@ function intervalFunc () {
   });
 }
 
-setInterval(intervalFunc, 1500);
+setInterval(intervalFunc, 600000);
