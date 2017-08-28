@@ -21,6 +21,6 @@ WORKDIR /usr/src/app
 # Copy our node_modules into our deployable container context.
 COPY --from=buildstep /usr/src/app/node_modules node_modules
 COPY . .
-
+ENV FOO bar
 # Launch our App.
 CMD ["node", "main.js"]
