@@ -1,19 +1,20 @@
 const isOnline = require('is-online');
-const blinkt = require('blinkt');
+const Blinkt = require('blinktjs');
+const blinkt = new Blinkt({defaultBrightness: 0.5});
  
 console.log('Hello, world!');
-blinkt.clear();
+blinkt.off();
 function intervalFunc () {
   console.log('Cant stop me now!');
   isOnline().then(online => {
     console.log("device connected to the internet")
-    blinkt.setPixels(0, 255, 0, 1);
-    blinkt.show();
+    blinkt.setAll(0, 255, 0);
+    blinkt.draw();
   })
   .catch(err => {
     console.log("ERROR: no internet")
-    blinkt.setPixels(255, 0, 0, 1);
-    blinkt.show();
+    blinkt.setAll(255, 0, 0);
+    blinkt.draw();
   });
 }
 

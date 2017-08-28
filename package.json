@@ -3,7 +3,7 @@
     "name": "nodejs-multistage",
     "bin": "main.js",
     "dependencies": {
-        "blinkt": "0.0.1",
+        "blinktjs": "0.8.1",
         "is-online": "7.0.0"
     }
 }
