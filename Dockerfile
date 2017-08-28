@@ -12,6 +12,10 @@ RUN JOBS=MAX npm install --production --unsafe-perm
 # running on the device.
 FROM resin/raspberrypi3-node:8.1-slim
 
+RUN apt-get update && apt-get install \
+    ModemManager && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /usr/src/app
 
 # Copy our node_modules into our deployable container context.
