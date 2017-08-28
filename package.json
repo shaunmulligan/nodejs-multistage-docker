@@ -3,6 +3,7 @@
     "name": "nodejs-multistage",
     "bin": "main.js",
     "dependencies": {
-        "serialport": "^4.0.7"
+        "blinkt": "0.0.1",
+        "is-online": "7.0.0"
     }
 }
