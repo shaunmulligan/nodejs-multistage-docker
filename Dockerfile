@@ -1,6 +1,6 @@
 # This is the base for our build step container
 # which has all our build essentials
-FROM resin/raspberrypi3-node:8.1 AS buildstep
+FROM arm32v7/node:8.5 AS buildstep
 
 # Copy in package.json, install 
 # and build all node modules
@@ -10,7 +10,7 @@ RUN JOBS=MAX npm install --production --unsafe-perm
 
 # This is our runtime container that will end up
 # running on the device.
-FROM resin/raspberrypi3-node:8.1-slim
+FROM arm32v7/node:8.5-slim
 
 RUN apt-get update && apt-get install \
     ModemManager && \
