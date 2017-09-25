@@ -12,15 +12,11 @@ RUN JOBS=MAX npm install --production --unsafe-perm
 # running on the device.
 FROM arm32v7/node:8.5-slim
 
-RUN apt-get update && apt-get install \
-    ModemManager && \
-    apt-get clean && rm -rf /var/lib/apt/lists/*
-
 WORKDIR /usr/src/app
 
 # Copy our node_modules into our deployable container context.
 COPY --from=buildstep /usr/src/app/node_modules node_modules
 COPY . .
-ENV FOO bar
+
 # Launch our App.
 CMD ["node", "main.js"]
